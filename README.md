@@ -1,1 +1,75 @@
-# Sleep, Health, and Daily Performance\n\nA data exploration and baseline modeling notebook for the **Sleep Health and Daily Performance** dataset, focusing on how sleep behavior and lifestyle factors relate to next-day cognitive performance and sleep-disorder risk.\n\n## Repository contents\n\n- `sleep_health_dataset.ipynb` — end-to-end notebook: dataset download, cleaning, EDA, feature preparation, and baseline modeling.\n- `README.md` — project overview and usage instructions.\n\n## Dataset\n\nThis project uses the Kaggle dataset **Sleep Health and Daily Performance**. The notebook downloads the dataset using `opendatasets`, which requires Kaggle API credentials.\n\nKey characteristics (as used in the notebook):\n\n- Rows: **100,000**\n- Columns: **32**\n- Target label (classification): `sleep_disorder_risk`\n\nExample feature groups included in the dataset:\n\n- Demographics: age, gender, occupation, country, BMI\n- Sleep metrics: sleep duration, sleep quality, REM/deep sleep %, sleep latency, wake episodes\n- Lifestyle factors: caffeine/alcohol before bed, screen time, exercise, steps, naps\n- Context: season, day type (weekday/weekend), room temperature\n\n## Getting started\n\n### Prerequisites\n\n- Python 3.9+\n- Jupyter (or Google Colab)\n\nInstall the notebook dependencies:\n\n```bash\npip install -U opendatasets kaggle numpy pandas matplotlib seaborn scikit-learn\n```\n\n### Kaggle credentials\n\nTo download the dataset, you must configure Kaggle credentials. The most common approach is:\n\n1. Create an API token from your Kaggle account settings (downloads `kaggle.json`).\n2. Place `kaggle.json` in `~/.kaggle/` and set permissions appropriately.\n\nThe notebook will prompt for credentials if they are not available.\n\n### Run\n\nOpen the notebook and run all cells:\n\n- Local Jupyter: open `sleep_health_dataset.ipynb`\n- Colab: use the Colab badge at the top of the notebook\n\n## Notebook overview\n\nThe notebook follows a typical applied-ML workflow:\n\n1. Download dataset from Kaggle\n2. Load data and inspect schema\n3. Exploratory data analysis (summary statistics and visual inspection)\n4. Feature/target split (`X` and `y`)\n5. Baseline model training and evaluation\n\n## Results\n\nThis repository is intended as a clean, reproducible baseline. If you extend it, consider adding:\n\n- A fixed preprocessing pipeline (categorical encoding, scaling, train/test split)\n- Cross-validation and hyperparameter tuning\n- Model interpretability (feature importance / SHAP)\n- A short report with key EDA findings\n\n## Notes\n\n- Do not commit Kaggle API keys to the repository.\n- If dataset paths differ between Colab and local runs, update the CSV path accordingly.\n\n## License\n\nNo license file is currently included. If you plan to share or reuse this code, consider adding a license (MIT, Apache-2.0, or similar).
+# Sleep Health and Daily Performance
+
+This repository contains a reproducible notebook that explores the **Sleep Health and Daily Performance** dataset and builds a baseline workflow to study relationships between sleep behavior, lifestyle factors, and outcomes such as cognitive performance and sleep-disorder risk.
+
+## Project overview
+
+The notebook follows a practical applied-data-science workflow:
+
+- Download the dataset from Kaggle
+- Load and inspect the data schema
+- Perform exploratory data analysis (EDA)
+- Prepare features and target labels
+- Establish a baseline modeling setup for downstream experimentation
+
+## Repository structure
+
+- `sleep_health_dataset.ipynb` — end-to-end notebook (download, loading, EDA, and feature/target preparation)
+
+## Dataset
+
+The dataset is sourced from Kaggle: **Sleep Health and Daily Performance**.
+
+From the notebook run:
+
+- Shape: **100,000 rows × 32 columns**
+- Target label (classification): `sleep_disorder_risk`
+
+The dataset includes a mix of:
+
+- Demographics (e.g., age, gender, occupation, country, BMI)
+- Sleep metrics (e.g., duration, quality score, REM/deep sleep %, latency, wake episodes)
+- Lifestyle factors (e.g., caffeine/alcohol before bed, screen time, exercise, steps, naps)
+- Context (e.g., room temperature, weekend sleep difference, season, day type)
+- Outcome variables (e.g., cognitive performance score, felt rested, sleep disorder risk)
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.9+
+- Jupyter Notebook or Google Colab
+
+Install dependencies:
+
+```bash
+pip install -U opendatasets kaggle numpy pandas matplotlib seaborn scikit-learn
+```
+
+### Kaggle credentials
+
+The notebook downloads the dataset via `opendatasets`, which uses the Kaggle API. Configure Kaggle credentials before running:
+
+1. Create an API token in your Kaggle account settings (downloads `kaggle.json`).
+2. Place it at `~/.kaggle/kaggle.json`.
+3. Ensure permissions are set correctly (recommended by Kaggle).
+
+Note: Never commit `kaggle.json` or any API keys to this repository.
+
+### Run the notebook
+
+Open and run all cells:
+
+- Local: open `sleep_health_dataset.ipynb` in Jupyter
+- Colab: use the “Open in Colab” badge included in the notebook
+
+## Notes and recommendations
+
+- If you run locally (not in Colab), adjust the CSV path if needed.
+- For a more complete baseline, consider adding:
+  - a deterministic train/test split
+  - preprocessing (categorical encoding, scaling) via a pipeline
+  - cross-validation and hyperparameter tuning
+  - model interpretability (feature importance / SHAP)
+  - a short summary of key EDA findings and modeling results
+
